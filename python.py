@@ -400,3 +400,76 @@
 #
 # def multiply(a, b):
 #     return a * b
+
+# def prime_generator(n):
+#     # Generator pozwalający na iterowanie po n liczbach pierwszych
+#     number = 2
+#     generated_numbers = 0
+#     while generated_numbers != n:
+#         if number:
+#             yield number
+#             generated_numbers += 1
+#         number += 1
+#
+#
+# gen = prime_generator(1000000)
+# for elem in gen:
+#     print(elem)
+
+
+# class PrimeIterator:
+#
+#     def __init__(self, n):
+#         self.n = n
+#         self.generated_numbers = 0
+#         self.number = 0
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         self.number += 1
+#         if self.generated_numbers >= self.n:
+#             raise StopIteration
+#         elif self.number:
+#             self.generated_numbers += 1
+#             return self.number
+#         return self.__next__()
+#
+#
+# iter = PrimeIterator(1000)
+# for elem in iter:
+#     print(elem)
+
+
+# class Loopse:
+#
+#     def __init__(self,n):
+#         self.n=n
+#
+#     def loos(self):# тобі не потрібно передавати дату яка уже вказана
+#         datalist=[]
+#         for i in self.n :
+#             if i%5==0:
+#                 datalist.append(i)
+#         return datalist
+#
+# data=Loopse([x for x in range(10)])
+#
+# data2=Loopse([10,4,'str'])
+
+class NumberChenge:
+    def __init__(self,n):
+        self.n=n
+    def cheng_n(self):
+        self.n=self.n+1
+        return self.n
+
+    def g(self):
+        return self.n
+
+
+data =NumberChenge(2)
+for i in range(10):
+    data.cheng_n()
+print(data.g())
