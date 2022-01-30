@@ -458,18 +458,81 @@
 #
 # data2=Loopse([10,4,'str'])
 
-class NumberChenge:
-    def __init__(self,n):
-        self.n=n
-    def cheng_n(self):
-        self.n=self.n+1
-        return self.n
+# class NumberChenge:
+#     def __init__(self,n):
+#         self.n=n
+#     def cheng_n(self):
+#         self.n=self.n+1
+#         return self.n
+#
+#     def g(self):
+#         return self.n
+#
+#
+# data =NumberChenge(2)
+# for i in range(10):
+#     data.cheng_n()
+# print(data.g())
 
-    def g(self):
-        return self.n
 
 
-data =NumberChenge(2)
-for i in range(10):
-    data.cheng_n()
-print(data.g())
+class Test1:
+    def __init__(self,data):
+        self.data=data
+
+    def index(self):
+        list_data=[]
+        for i in range(len(self.data)):
+            list_data.append(i)
+        return list_data
+
+    def indexrange(self):
+        list_data=[]
+        for i in range(len(self.data)):
+            if 2<=i<=4:
+                list_data.append(i)
+        return list_data
+
+
+
+def deco(func):
+
+    def wrapper(*args,**kwargs):
+
+        value = func()
+
+        return value + value
+    return wrapper
+
+@deco
+def rangedata():
+    return [x for x in range(10)]
+
+print(rangedata())
+
+
+def hello_decorator(func):
+    def inner1(*args, **kwargs):
+        print("before Execution")
+
+        # getting the returned value
+        returned_value = func(*args, **kwargs)
+        print("after Execution")
+
+        # returning the value to the original frame
+        return returned_value
+
+    return inner1
+
+
+# adding decorator to the function
+@hello_decorator
+def sum_two_numbers(a, b):
+    print("Inside the function")
+    return a + b
+
+
+a, b = 1, 2
+
+# getting the value through return of the function
+print("Sum =", sum_two_numbers(a, b))
